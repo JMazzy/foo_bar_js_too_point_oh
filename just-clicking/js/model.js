@@ -46,7 +46,9 @@ JC.model = (function(_) {
     }
   };
 
-
+  function increaseBoardSize() {
+    _dataSquares.push(0);
+  };
 
 
   return {

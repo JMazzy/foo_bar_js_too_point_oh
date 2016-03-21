@@ -11,6 +11,10 @@ JC.controller = (function(model, view) {
       model.activateRandomSquare();
       view.updateSquares( model.getSquares() );
       view.updateScore( model.getScore() );
+      if ( model.getScore > 100 ) {
+        model.increaseBoardSize();
+        view.addSquare();
+      }
     }, 1000);
 
     function onClick(index) {
@@ -21,6 +25,7 @@ JC.controller = (function(model, view) {
 
     view.init(onClick);
   };
+
 
   return {
     init: init,

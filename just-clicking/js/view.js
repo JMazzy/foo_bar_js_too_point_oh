@@ -17,6 +17,11 @@ JC.view = (function($) {
       onClick( id );
     });
 
+    initSquareGrid();
+  };
+
+  function initSquareGrid() {
+    $squares = $('.square');
     $squares.each(function(index, element) {
       var $element = $(element);
       $element.attr('data-id', index);
@@ -37,6 +42,13 @@ JC.view = (function($) {
 
   function updateScore(points) {
     $score.text(points);
+  };
+
+  function addSquare() {
+    var $newSquare = $("<div class='square col-xs-4'></div>");
+    $game.append($newSquare)
+
+    initSquareGrid();
   };
 
 
