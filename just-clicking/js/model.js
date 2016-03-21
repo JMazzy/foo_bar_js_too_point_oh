@@ -23,11 +23,27 @@ JC.model = (function(_) {
   };
 
   function activateRandomSquare() {
-    
+    var indexes = _.times(_dataSquares.length, function(index) {
+      return index;
+    });
+    indexes = _.shuffle(indexes);
+
+    for (var i = 0; i < indexes.length; i++) {
+      var index = indexes[i];
+      var dataSquare = _dataSquares[index];
+      if (dataSquare === 0) {
+        _dataSquares[index] = 1;
+        break;
+      }
+    }
   };
 
   function processSquareClick(index) {
-
+    var dataSquare = _dataSquares[index];
+    if (dataSquare === 1) {
+      _dataSquares[index] = 0;
+      score += 10;
+    }
   };
 
 
